@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women and AI</title>
+  <script>
+    // Handle client-side routing for GitHub Pages
+    (function() {
+      const path = window.location.pathname.replace('/womenandai', '');
+      if (path && path !== '/' && !path.includes('.')) {
+        // Store the path and redirect to root
+        sessionStorage.setItem('redirect', path);
+        window.location.pathname = '/womenandai/';
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/womenandai/assets/index-DL6buIf5.js"></script>
+</body>
+</html>

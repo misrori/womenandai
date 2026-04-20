@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women and AI</title>
+  <script>
+    // SPA fallback for GitHub Pages client-side routing
+    // Store the current path for the app to handle after it loads
+    const path = window.location.pathname;
+    const segments = path.split("/").filter(Boolean);
+    
+    // Remove 'womenandai' from segments if present (project repo name)
+    if (segments[0] === "womenandai") {
+      segments.shift();
+    }
+    
+    // Store the path for the app to process
+    if (segments.length > 0) {
+      sessionStorage.setItem("initialPath", "/" + segments.join("/"));
+      // Redirect to the root with a hash-based path
+      window.location.href = "/womenandai/#/" + segments.join("/");
+    }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/womenandai/assets/index.js"></script>
+</body>
+</html>
