@@ -1,0 +1,403 @@
+import type { Lang } from "./i18n";
+
+export type LocalizedString = Record<Lang, string>;
+
+export type BlogPost = {
+  slug: string;
+  date: string; // ISO
+  title: LocalizedString;
+  summary: LocalizedString;
+  body: LocalizedString; // markdown-lite: paragraphs separated by \n\n, "## " for h2
+  readMinutes: number;
+};
+
+export const posts: BlogPost[] = [
+  {
+    slug: "ai-in-everyday-life",
+    date: "2026-04-02",
+    readMinutes: 6,
+    title: {
+      en: "AI in everyday life: small wins that add up",
+      hu: "AI a hétköznapokban: kis győzelmek, amik összeadódnak",
+    },
+    summary: {
+      en: "Forget science fiction. The most useful AI of 2026 is the one that quietly removes friction from your week.",
+      hu: "Felejtsd el a sci-fit. A 2026-os AI legjobb használata az, ami csendben tűnteti el a heted súrlódásait.",
+    },
+    body: {
+      en: `When people imagine AI, they picture humanoid robots. The honest truth is more boring — and more useful. AI in 2026 is the assistant that drafts the email you've been avoiding, the camera that finds the photo of your daughter on the swing without you scrolling for ten minutes, the calendar that proposes a time you both can meet.
+
+## Three small wins to try this week
+
+First, dictate instead of type. On any modern phone, the microphone button on the keyboard now transcribes you in Hungarian with near-perfect accuracy. A two-minute voice note becomes a structured email in seconds.
+
+Second, use a chatbot as your patient explainer. Paste a contract, an insurance letter, or a school notice and ask: "Explain this to me in simple Hungarian, and tell me what I should pay attention to." It will not replace a lawyer, but it will sharpen the questions you ask one.
+
+Third, batch your decisions. Once a week, open a chatbot and dump the small things — meal plan, gift ideas, packing list, week-ahead schedule. Treat it as a thinking partner, not an oracle.
+
+## Why this matters
+
+Every minute AI saves you is a minute you keep. Multiply that by a year and the compounding is real. The goal is not to become a power user overnight — it is to find one tool that earns its place in your week, then add another.`,
+      hu: `Amikor az emberek az AI-ra gondolnak, humanoid robotokat képzelnek el. Az igazság prózaibb — és hasznosabb. A 2026-os AI az az asszisztens, aki megírja az e-mailt, amit halogatsz, a kamera, ami megtalálja a hintázó kislányod fotóját anélkül, hogy tíz percig görgetnél, a naptár, ami időpontot javasol.
+
+## Három kis győzelem erre a hétre
+
+Először: diktálj gépelés helyett. Minden modern telefon billentyűzetén a mikrofon gomb ma már szinte tökéletesen leírja a magyar beszédet. Egy két perces hangjegyzet másodpercek alatt strukturált e-maillé válik.
+
+Másodszor: használd a chatbotot türelmes magyarázóként. Másolj be egy szerződést, biztosítási levelet vagy iskolai értesítőt, és kérdezd meg: „Magyarázd el egyszerű magyar nyelven, és mondd meg, mire figyeljek.” Nem helyettesít ügyvédet, de élesíti a kérdéseidet.
+
+## Miért számít ez
+
+Minden percet, amit az AI megspórol neked, megtartasz. Szorozd be egy évvel, és a hatás valós. A cél nem az, hogy egyik napról a másikra szakértő legyél — hanem hogy találj egy eszközt, ami megérdemli a helyét a hetedben, aztán egy következőt.`,
+    },
+  },
+  {
+    slug: "chatgpt-for-productivity",
+    date: "2026-03-20",
+    readMinutes: 8,
+    title: {
+      en: "ChatGPT for productivity: the prompts I use every day",
+      hu: "ChatGPT a produktivitásért: a promptok, amiket naponta használok",
+    },
+    summary: {
+      en: "Six prompt patterns that turn a chat window into a thinking partner, an editor, and a project manager.",
+      hu: "Hat prompt-minta, amelyek a chat ablakot gondolkodó partnerré, szerkesztővé és projektmenedzserré teszik.",
+    },
+    body: {
+      en: `A blank chat window is intimidating. The trick is to keep a small library of prompts you trust, and adapt them.
+
+## 1. The editor
+
+"Edit this text for clarity. Do not change the meaning. Suggest two stronger opening lines."
+
+## 2. The thinking partner
+
+"I'm trying to decide between X and Y. Give me three arguments for each. Then ask me one question that would change your recommendation."
+
+## 3. The summariser
+
+"Summarise this in five bullets, then in one sentence a child would understand."
+
+## 4. The project breakdown
+
+"Here is a goal. Break it into the smallest meaningful next step I could do today in 20 minutes."
+
+## 5. The translator-with-context
+
+"Translate to Hungarian. Use professional but warm tone, the kind I would use with a colleague I respect."
+
+## 6. The pre-mortem
+
+"What is most likely to go wrong with this plan? List five risks, ranked."
+
+Save these. Adapt them. The pattern matters more than the exact words.`,
+      hu: `Egy üres chat ablak ijesztő. A trükk: tarts egy kis prompt-könyvtárat, amelyben bízol, és igazítsd a helyzethez.
+
+## 1. A szerkesztő
+
+„Szerkeszd ezt a szöveget az érthetőség kedvéért. Ne változtasd meg az értelmét. Javasolj két erősebb nyitómondatot.”
+
+## 2. A gondolkodó partner
+
+„X és Y között döntök. Adj három érvet mindkettő mellett. Aztán tegyél fel egy kérdést, ami megváltoztatná az ajánlásodat.”
+
+## 3. Az összefoglaló
+
+„Foglald össze öt pontban, majd egy mondatban, amit egy gyerek is megért.”
+
+## 4. A projektbontás
+
+„Itt egy cél. Bontsd a legkisebb értelmes következő lépésre, amit ma 20 perc alatt megtehetek.”
+
+## 5. A kontextusos fordító
+
+„Fordítsd magyarra. Profi, de meleg hang, ahogy egy tisztelt kollégával beszélnék.”
+
+## 6. A pre-mortem
+
+„Mi mehet legnagyobb valószínűséggel rosszul ebben a tervben? Sorolj fel öt kockázatot, rangsorolva.”
+
+Mentsd el. Igazítsd. A minta fontosabb, mint a pontos szavak.`,
+    },
+  },
+  {
+    slug: "ai-in-education",
+    date: "2026-03-08",
+    readMinutes: 7,
+    title: {
+      en: "AI in education: tutor, not crutch",
+      hu: "AI az oktatásban: korrepetitor, nem mankó",
+    },
+    summary: {
+      en: "How parents and learners can use AI to deepen understanding instead of skipping it.",
+      hu: "Hogyan használhatják a szülők és a tanulók az AI-t a megértés mélyítésére a kihagyása helyett.",
+    },
+    body: {
+      en: `The fear is reasonable: a student who asks a chatbot to write the essay learns nothing. But the same tool, used differently, becomes the patient tutor most schools cannot afford.
+
+## Three rules for learners
+
+Ask it to explain, not to write. "Explain why the Hungarian Revolution of 1956 happened, as if I'm 14."
+
+Ask it to quiz you. "Give me ten questions on this chapter, then mark my answers and explain each one I got wrong."
+
+Ask it to find your blind spot. "Here is my essay. Don't rewrite it. Tell me what I'm missing."
+
+## For parents
+
+Sit with your child for ten minutes. Show them the difference between "do my homework" and "help me understand my homework." That conversation matters more than any school AI policy.`,
+      hu: `A félelem érthető: a diák, aki megíratja a chatbottal a fogalmazást, semmit sem tanul. De ugyanaz az eszköz másképp használva azzá a türelmes korrepetitorrá válik, amit a legtöbb iskola nem engedhet meg magának.
+
+## Három szabály a tanulóknak
+
+Kérj magyarázatot, ne fogalmazást. „Magyarázd el, miért tört ki az 1956-os forradalom, mintha 14 éves lennék.”
+
+Kérdeztesd magadat. „Tegyél fel tíz kérdést erről a fejezetről, majd javítsd ki a válaszaimat, és magyarázd el azt, amit elrontottam.”
+
+Kérd meg, hogy találja meg a vakfoltodat. „Itt a fogalmazásom. Ne írd át. Mondd meg, mi hiányzik.”
+
+## Szülőknek
+
+Ülj le tíz percre a gyermekeddel. Mutasd meg neki a különbséget a „csináld meg a leckémet” és a „segíts megérteni a leckémet” között. Az a beszélgetés többet ér, mint bármilyen iskolai AI-szabályzat.`,
+    },
+  },
+  {
+    slug: "ai-tools-for-beginners",
+    date: "2026-02-22",
+    readMinutes: 5,
+    title: {
+      en: "AI tools for beginners: where to actually start",
+      hu: "AI eszközök kezdőknek: hol érdemes valóban elkezdeni",
+    },
+    summary: {
+      en: "A short, opinionated map: one chat tool, one image tool, one transcription tool. That's enough.",
+      hu: "Rövid, határozott térkép: egy chat eszköz, egy kép eszköz, egy átirat eszköz. Ennyi elég.",
+    },
+    body: {
+      en: `Beginner overwhelm is real. There are thousands of "AI tools." You need three.
+
+## A chat assistant
+
+Pick one (ChatGPT, Claude, Gemini — they are all good enough) and use only it for a month. Mastery beats variety.
+
+## An image generator
+
+Use one to make slides, blog headers, or moodboards. Treat it like a stock photo library you can describe instead of search.
+
+## A transcription tool
+
+Whether built into your phone or a dedicated app, transcribing meetings and voice notes is the productivity unlock most people overlook.
+
+That's it. Master these three before you add a fourth.`,
+      hu: `A kezdő túlterheltség valós. Több ezer „AI eszköz” van. Háromra van szükséged.
+
+## Egy chat asszisztens
+
+Válassz egyet (ChatGPT, Claude, Gemini — mindegyik elég jó), és csak azt használd egy hónapig. A mélység többet ér, mint a változatosság.
+
+## Egy képgenerátor
+
+Használd diákhoz, blogfejlécekhez, moodboardokhoz. Tekintsd olyan stock fotó könyvtárnak, amit le tudsz írni, nem keresni.
+
+## Egy átirat eszköz
+
+Akár a telefonodba van építve, akár külön alkalmazás — a meetingek és hangjegyzetek átírása az a produktivitás-ugrás, amit a legtöbben kihagynak.
+
+Ennyi. Sajátítsd el ezt a hármat, mielőtt hozzáadnál egy negyediket.`,
+    },
+  },
+  {
+    slug: "ethical-challenges-in-ai",
+    date: "2026-02-05",
+    readMinutes: 9,
+    title: {
+      en: "Ethical challenges in AI: a community reading list",
+      hu: "AI etikai kihívásai: közösségi olvasmánylista",
+    },
+    summary: {
+      en: "Bias, privacy, work, and the climate question — what every careful user should think about.",
+      hu: "Elfogultság, magánélet, munka és a klímakérdés — amin minden tudatos felhasználónak gondolkodnia kell.",
+    },
+    body: {
+      en: `If you use AI, you have a stake in how it is built. Four questions to sit with.
+
+## Bias
+
+AI systems learn from the past. The past is unequal. A hiring tool trained on twenty years of resumes will quietly prefer the candidates who looked like the ones who got hired before. Ask: who was in the data, and who was missing?
+
+## Privacy
+
+A free chatbot is rarely free. Read what the provider does with your conversations. Treat any prompt as if it could one day be public.
+
+## Work
+
+Some tasks will go away. Most jobs will not. The honest framing is not "will AI take my job" but "which parts of my job is AI good at, and what becomes more valuable when those parts are cheap?"
+
+## Climate
+
+Training large models uses energy. So does every search. The question is not to abstain — it is to use AI for the things that justify the cost, and not for the things a calculator already does.
+
+## What we do as a community
+
+We pick speakers who disagree. We read the people most affected, not only the people building the systems. We update our minds in public.`,
+      hu: `Ha AI-t használsz, részed van abban, ahogyan épül. Négy kérdés, amin érdemes elidőzni.
+
+## Elfogultság
+
+Az AI rendszerek a múltból tanulnak. A múlt egyenlőtlen. Egy húsz év önéletrajzaira tanított felvételi eszköz csendben azokat fogja előnyben részesíteni, akik hasonlítanak a korábban felvettekhez. Kérdezd: ki volt az adatban, és ki hiányzott?
+
+## Magánélet
+
+Az ingyenes chatbot ritkán ingyenes. Olvasd el, mit csinál a szolgáltató a beszélgetéseiddel. Minden promptot úgy kezelj, mintha egy nap nyilvános lehetne.
+
+## Munka
+
+Néhány feladat eltűnik. A legtöbb munkahely nem. Az őszinte kérdés nem az, hogy „elveszi-e az AI a munkámat”, hanem hogy „mely részekben jó az AI, és mi válik értékesebbé, amikor azok olcsóvá válnak?”
+
+## Klíma
+
+A nagy modellek tanítása energiát fogyaszt. Minden keresés is. A válasz nem a tartózkodás — hanem hogy az AI-t azokra használjuk, ami megéri a költséget, és nem arra, amit egy számológép is megtesz.
+
+## Amit közösségként teszünk
+
+Olyan előadókat hívunk, akik vitáznak. Azokat olvassuk, akiket a leginkább érint, nem csak azokat, akik építik a rendszereket. Nyilvánosan változtatjuk a véleményünket.`,
+    },
+  },
+];
+
+export type EventItem = {
+  id: string;
+  date: string; // ISO yyyy-mm-dd
+  time: string;
+  title: LocalizedString;
+  description: LocalizedString;
+  location: LocalizedString;
+};
+
+export const events: EventItem[] = [
+  {
+    id: "e1",
+    date: "2026-05-08",
+    time: "18:00",
+    title: { en: "Prompt Lab #04: workplace prompts", hu: "Prompt Lab #04: munkahelyi promptok" },
+    description: {
+      en: "Hands-on session: bring one task from your week, leave with a prompt that does it.",
+      hu: "Gyakorlati alkalom: hozz egy heti feladatot, vidd haza a promptot, ami megoldja.",
+    },
+    location: { en: "Loffice, Budapest", hu: "Loffice, Budapest" },
+  },
+  {
+    id: "e2",
+    date: "2026-05-22",
+    time: "19:00",
+    title: { en: "Mentor Circle: switching into AI roles", hu: "Mentorkör: váltás AI-os szerepekbe" },
+    description: {
+      en: "Three Hungarian women share how they transitioned into AI engineering, product, and research.",
+      hu: "Három magyar nő meséli el, hogyan váltottak AI mérnöki, termék- és kutatói szerepekbe.",
+    },
+    location: { en: "Online (Zoom)", hu: "Online (Zoom)" },
+  },
+  {
+    id: "e3",
+    date: "2026-06-12",
+    time: "10:00",
+    title: { en: "Beginner Brunch: your first chatbot", hu: "Kezdő Brunch: az első chatbotod" },
+    description: {
+      en: "Coffee, croissants, and your first working AI assistant by lunchtime. No code.",
+      hu: "Kávé, croissant, és az első működő AI asszisztensed ebédig. Kód nélkül.",
+    },
+    location: { en: "Massolit Books, Budapest", hu: "Massolit Books, Budapest" },
+  },
+  {
+    id: "e4",
+    date: "2026-06-26",
+    time: "18:30",
+    title: { en: "Ethics Salon: AI and the labour market", hu: "Etika Szalon: AI és a munkaerőpiac" },
+    description: {
+      en: "A moderated conversation with an economist, a labour lawyer, and an HR director.",
+      hu: "Moderált beszélgetés közgazdásszal, munkajogásszal és HR igazgatóval.",
+    },
+    location: { en: "Aurora, Budapest", hu: "Aurora, Budapest" },
+  },
+  {
+    id: "e5",
+    date: "2026-01-30",
+    time: "18:00",
+    title: { en: "New Year Kickoff & community dinner", hu: "Évindító és közösségi vacsora" },
+    description: {
+      en: "Looking back at the first year, looking forward to the next. With dinner.",
+      hu: "Visszatekintés az első évre, előretekintés a következőre. Vacsorával.",
+    },
+    location: { en: "Csendes Vintage, Budapest", hu: "Csendes Vintage, Budapest" },
+  },
+];
+
+export type Resource = {
+  category: "guides" | "tools" | "paths";
+  title: LocalizedString;
+  description: LocalizedString;
+  url: string;
+};
+
+export const resources: Resource[] = [
+  {
+    category: "guides",
+    title: { en: "Your first week with ChatGPT", hu: "Az első hét a ChatGPT-vel" },
+    description: { en: "A 7-day routine to build a habit.", hu: "7 napos rutin a szokás kialakításához." },
+    url: "#",
+  },
+  {
+    category: "guides",
+    title: { en: "Prompting basics, in Hungarian", hu: "Prompt alapok, magyarul" },
+    description: { en: "The four moves every prompt needs.", hu: "Négy mozdulat, amire minden promptnak szüksége van." },
+    url: "#",
+  },
+  {
+    category: "guides",
+    title: { en: "Reading AI news without panic", hu: "AI hírek olvasása pánik nélkül" },
+    description: { en: "How to filter signal from noise.", hu: "Hogyan szűrd a jelet a zajból." },
+    url: "#",
+  },
+  {
+    category: "tools",
+    title: { en: "ChatGPT", hu: "ChatGPT" },
+    description: { en: "The most-used general assistant.", hu: "A legtöbbet használt általános asszisztens." },
+    url: "https://chat.openai.com",
+  },
+  {
+    category: "tools",
+    title: { en: "Claude", hu: "Claude" },
+    description: { en: "Excellent for long documents and writing.", hu: "Kiváló hosszú dokumentumokhoz és íráshoz." },
+    url: "https://claude.ai",
+  },
+  {
+    category: "tools",
+    title: { en: "Midjourney", hu: "Midjourney" },
+    description: { en: "Image generation with strong aesthetics.", hu: "Képgenerálás erős esztétikával." },
+    url: "https://midjourney.com",
+  },
+  {
+    category: "tools",
+    title: { en: "Otter / Whisper", hu: "Otter / Whisper" },
+    description: { en: "Transcription that actually understands Hungarian.", hu: "Átirat, ami valóban érti a magyart." },
+    url: "#",
+  },
+  {
+    category: "paths",
+    title: { en: "Curious beginner — 4 weeks", hu: "Kíváncsi kezdő — 4 hét" },
+    description: { en: "From zero to confident daily user.", hu: "Nulláról magabiztos napi felhasználóig." },
+    url: "#",
+  },
+  {
+    category: "paths",
+    title: { en: "Working professional — 6 weeks", hu: "Dolgozó szakember — 6 hét" },
+    description: { en: "Automate one workflow per week.", hu: "Egy munkafolyamat automatizálása hetente." },
+    url: "#",
+  },
+  {
+    category: "paths",
+    title: { en: "Aspiring builder — 12 weeks", hu: "Leendő építő — 12 hét" },
+    description: { en: "Ship a working AI tool of your own.", hu: "Szállíts egy saját, működő AI eszközt." },
+    url: "#",
+  },
+];
