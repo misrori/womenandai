@@ -6,7 +6,7 @@ import { format, parseISO } from "date-fns";
 import { hu as huLocale, enUS } from "date-fns/locale";
 import { ArrowUpRight } from "lucide-react";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "The Journal — Women and AI" },
