@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useI18n, type Lang } from "@/lib/i18n";
@@ -27,15 +27,16 @@ export function Header() {
 
           <nav className="hidden lg:flex items-center gap-7">
             {links.map((l) => (
-              <Link
+              <NavLink
                 key={l.to}
                 to={l.to}
-                activeOptions={{ exact: l.to === "/" }}
-                className="text-sm tracking-wide hover:text-primary transition-colors"
-                activeProps={{ className: "text-primary border-b border-primary" }}
+                end={l.to === "/"}
+                className={({ isActive }) => 
+                  `text-sm tracking-wide hover:text-primary transition-colors ${isActive ? "text-primary border-b border-primary" : ""}`
+                }
               >
                 {t(l.key)}
-              </Link>
+              </NavLink>
             ))}
           </nav>
 
@@ -54,15 +55,17 @@ export function Header() {
         {open && (
           <nav className="lg:hidden flex flex-col gap-1 pb-4 border-t border-rule pt-4">
             {links.map((l) => (
-              <Link
+              <NavLink
                 key={l.to}
                 to={l.to}
+                end={l.to === "/"}
                 onClick={() => setOpen(false)}
-                className="py-2 text-base"
-                activeProps={{ className: "text-primary font-medium" }}
+                className={({ isActive }) => 
+                  `py-2 text-base ${isActive ? "text-primary font-medium" : ""}`
+                }
               >
                 {t(l.key)}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         )}
