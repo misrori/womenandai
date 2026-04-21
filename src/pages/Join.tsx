@@ -1,22 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/join")({
-  head: () => ({
-    meta: [
-      { title: "Join — Women and AI" },
-      { name: "description", content: "Join a Hungarian community of women learning and applying AI." },
-      { property: "og:title", content: "Join — Women and AI" },
-      { property: "og:description", content: "Join a Hungarian community of women learning and applying AI." },
-    ],
-  }),
-  component: Join,
-});
-
-function Join() {
+export function Join() {
   const { t } = useI18n();
   const [form, setForm] = useState({ name: "", email: "", level: "beginner" });
 

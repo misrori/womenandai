@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useParams, Link } from "react-router-dom";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
 import { posts } from "@/lib/content";
@@ -6,44 +6,27 @@ import { format, parseISO } from "date-fns";
 import { hu as huLocale, enUS } from "date-fns/locale";
 import { ArrowLeft } from "lucide-react";
 
-export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = posts.find((p) => p.slug === params.slug);
-    if (!post) throw notFound();
-    return { post };
-  },
-  head: ({ loaderData }) => {
-    const post = loaderData?.post;
-    if (!post) return { meta: [{ title: "Essay — Women and AI" }] };
-    return {
-      meta: [
-        { title: `${post.title.en} — Women and AI` },
-        { name: "description", content: post.summary.en },
-        { property: "og:title", content: post.title.en },
-        { property: "og:description", content: post.summary.en },
-        { property: "og:type", content: "article" },
-      ],
-    };
-  },
-  notFoundComponent: () => (
-    <Page>
-      <div className="mx-auto max-w-3xl px-6 py-32 text-center">
-        <div className="number-marker">404</div>
-        <h1 className="display text-6xl mt-3">Essay not found.</h1>
-        <Link to="/blog" className="mt-8 inline-block underline">Back to the Journal</Link>
-      </div>
-    </Page>
-  ),
-  component: Post,
-});
-
-function Post() {
-  const { post } = Route.useLoaderData();
+export function BlogDetail() {
+  const { slug } = useParams<{ slug: string }>();
+  const post = posts.find((p) => p.slug === slug);
   const { t, lang } = useI18n();
   const locale = lang === "hu" ? huLocale : enUS;
 
+  if (!post) {
+    return (
+      <Page>
+        <div className="mx-auto max-w-3xl px-6 py-32 text-center">
+          <div className="number-marker">404</div>
+          <h1 className="display text-6xl mt-3">Essay not found.</h1>
+          <Link to="/blog" className="mt-8 inline-block underline">Back to the Journal</Link>
+        </div>
+      </Page>
+    );
+  }
+
   return (
     <Page>
+      <title>{`${post.title[lang]} — Women and AI`}</title>
       <article>
         <header className="border-b border-rule">
           <div className="mx-auto max-w-[1100px] px-6 lg:px-10 py-12">

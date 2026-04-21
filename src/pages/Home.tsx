@@ -1,17 +1,15 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
 import { ArrowUpRight } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-function Index() {
+export function Home() {
   const { t } = useI18n();
 
   return (
     <Page>
+      <title>Women and AI</title>
+      <meta name="description" content="A bilingual website empowering Hungarian women in AI, offering learning resources, events, and community connection." />
       {/* HERO — editorial masthead */}
       <section className="border-b border-rule">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-10 lg:py-16">
@@ -62,10 +60,10 @@ function Index() {
           <div className="number-marker mb-10">{t("home.sections.title")}</div>
           <div className="divide-y divide-rule">
             {[
-              { num: "01", to: "/about" as const, label: t("home.sections.about") },
-              { num: "02", to: "/events" as const, label: t("home.sections.events") },
-              { num: "03", to: "/blog" as const, label: t("home.sections.journal") },
-              { num: "04", to: "/knowledge" as const, label: t("home.sections.knowledge") },
+              { num: "01", to: "/about", label: t("home.sections.about") },
+              { num: "02", to: "/events", label: t("home.sections.events") },
+              { num: "03", to: "/blog", label: t("home.sections.journal") },
+              { num: "04", to: "/knowledge", label: t("home.sections.knowledge") },
             ].map((s) => (
               <Link
                 key={s.num}

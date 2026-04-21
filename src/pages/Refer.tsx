@@ -1,23 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
 import { toast } from "sonner";
 import { Copy, Mail, Award } from "lucide-react";
 
-export const Route = createFileRoute("/refer")({
-  head: () => ({
-    meta: [
-      { title: "Refer a friend — Women and AI" },
-      { name: "description", content: "Invite your friends and grow the Women and AI community." },
-      { property: "og:title", content: "Refer a friend — Women and AI" },
-      { property: "og:description", content: "Invite your friends and grow the Women and AI community." },
-    ],
-  }),
-  component: Refer,
-});
-
-function Refer() {
+export function Refer() {
   const { t } = useI18n();
   const [email, setEmail] = useState("");
   const link = "https://womenandai.hu/?ref=anna2026";

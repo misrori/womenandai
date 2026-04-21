@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
@@ -7,19 +6,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { format, isSameDay, parseISO, isAfter, startOfToday } from "date-fns";
 import { hu as huLocale, enUS } from "date-fns/locale";
 
-export const Route = createFileRoute("/events")({
-  head: () => ({
-    meta: [
-      { title: "Events — Women and AI" },
-      { name: "description", content: "Workshops, mentor circles, and meetups for women learning AI in Hungary." },
-      { property: "og:title", content: "Events — Women and AI" },
-      { property: "og:description", content: "Workshops, mentor circles, and meetups for women learning AI in Hungary." },
-    ],
-  }),
-  component: Events,
-});
-
-function Events() {
+export function Events() {
   const { t, lang } = useI18n();
   const [view, setView] = useState<"list" | "calendar">("list");
   const [selected, setSelected] = useState<Date | undefined>(undefined);

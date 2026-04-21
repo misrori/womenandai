@@ -1,22 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
 import { resources } from "@/lib/content";
 import { ArrowUpRight } from "lucide-react";
 
-export const Route = createFileRoute("/knowledge")({
-  head: () => ({
-    meta: [
-      { title: "Knowledge Hub — Women and AI" },
-      { name: "description", content: "Curated guides, AI tools, and learning paths for every level." },
-      { property: "og:title", content: "Knowledge Hub — Women and AI" },
-      { property: "og:description", content: "Curated guides, AI tools, and learning paths for every level." },
-    ],
-  }),
-  component: Knowledge,
-});
-
-function Knowledge() {
+export function Knowledge() {
   const { t, lang } = useI18n();
   const cats = ["guides", "tools", "paths"] as const;
 

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
 import { posts } from "@/lib/content";
@@ -6,19 +6,7 @@ import { format, parseISO } from "date-fns";
 import { hu as huLocale, enUS } from "date-fns/locale";
 import { ArrowUpRight } from "lucide-react";
 
-export const Route = createFileRoute("/blog/")({
-  head: () => ({
-    meta: [
-      { title: "The Journal — Women and AI" },
-      { name: "description", content: "Practical, beginner-friendly essays on AI for everyday life and work." },
-      { property: "og:title", content: "The Journal — Women and AI" },
-      { property: "og:description", content: "Practical, beginner-friendly essays on AI for everyday life and work." },
-    ],
-  }),
-  component: Blog,
-});
-
-function Blog() {
+export function BlogIndex() {
   const { t, lang } = useI18n();
   const locale = lang === "hu" ? huLocale : enUS;
   const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
@@ -39,8 +27,7 @@ function Blog() {
             {sorted.map((p, idx) => (
               <Link
                 key={p.slug}
-                to="/blog/$slug"
-                params={{ slug: p.slug }}
+                to={`/blog/${p.slug}`}
                 className="group block py-10 grid md:grid-cols-12 gap-6 hover:pl-4 transition-all"
               >
                 <div className="md:col-span-2 number-marker text-muted-foreground">

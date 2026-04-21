@@ -1,23 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Page } from "@/components/Page";
 import { useI18n } from "@/lib/i18n";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Women and AI" },
-      { name: "description", content: "Why Women and AI exists, and the research behind closing the gender gap in AI." },
-      { property: "og:title", content: "About — Women and AI" },
-      { property: "og:description", content: "Why Women and AI exists, and the research behind closing the gender gap in AI." },
-    ],
-  }),
-  component: About,
-});
-
-function About() {
+export function About() {
   const { t } = useI18n();
   return (
     <Page>
+      <title>About — Women and AI</title>
       <section className="border-b border-rule">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-16">
           <div className="number-marker">{t("about.kicker")}</div>
