@@ -21,7 +21,8 @@ export function Header() {
     <header className="border-b border-rule bg-paper sticky top-0 z-40">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-center justify-between py-4">
-          <Link to="/" className="flex items-baseline gap-2 group">
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src="/logo.png" alt="Women & AI Logo" className="h-8 w-8 object-contain" />
             <span className="display text-2xl tracking-tighter">Women<span className="display-italic"> & </span>AI</span>
           </Link>
 
